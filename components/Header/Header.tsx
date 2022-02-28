@@ -72,6 +72,7 @@ export default function Header() {
       <motion.div
         animate={{ backgroundColor: colors[currentIndex] }}
         className="h-1 w-full"
+        transition={{ duration: 0.5 }}
         style={{
           filter: `drop-shadow(1px 1px 5px ${colors[currentIndex]})`,
         }}
@@ -115,6 +116,14 @@ export default function Header() {
                 </li>
               ))}
             </ul>
+            <motion.div
+              animate={{ backgroundColor: colors[currentIndex] }}
+              className="absolute bottom-0 left-0 h-1 w-full"
+              transition={{ duration: 0.5 }}
+              style={{
+                filter: `drop-shadow(1px 1px 5px ${colors[currentIndex]})`,
+              }}
+            ></motion.div>
           </motion.div>
         )}
       </AnimatePresence>
