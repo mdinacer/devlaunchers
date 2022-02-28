@@ -6,7 +6,7 @@ interface Props {
 
 export default function ProjectListItem({ project }: Props) {
   return (
-    <div className="flex h-auto w-full flex-col justify-evenly rounded-md bg-[#c4c4c4] py-5 text-black  lg:flex-row">
+    <div className="flex h-auto w-full flex-col justify-evenly rounded-md bg-[#c4c4c4] py-5 text-black lg:flex-row  lg:py-0">
       <div className="flex flex-auto items-center justify-start p-5 lg:justify-center">
         <div>
           <p className=" font-Oswald text-4xl leading-normal">
@@ -17,7 +17,7 @@ export default function ProjectListItem({ project }: Props) {
           </p>
         </div>
       </div>
-      <div className=" flex min-w-[12vw] flex-initial items-center justify-start bg-[#59687a] px-10 text-white lg:-skew-x-12 lg:justify-center">
+      <div className=" flex min-w-[15vw] flex-initial items-center justify-start bg-[#59687a] px-10 text-white lg:-skew-x-12 lg:justify-center">
         <p className="flex flex-col py-4 lg:skew-x-12">
           <span className=" font-Oswald text-lg uppercase">Type</span>
           <span className=" font-Oswald text-2xl uppercase">
@@ -26,7 +26,7 @@ export default function ProjectListItem({ project }: Props) {
         </p>
       </div>
 
-      <div className=" flex min-w-[12vw] flex-initial items-center justify-start bg-slate-400 py-5 px-10 lg:-skew-x-12  lg:justify-center">
+      <div className=" flex min-w-[15vw] flex-initial items-center justify-start bg-slate-400 py-5 px-10 lg:-skew-x-12  lg:justify-center">
         <div className="lg:skew-x-12">
           <p className="pb-2 font-Oswald text-base font-bold uppercase underline underline-offset-2">
             Available Positions
