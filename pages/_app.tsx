@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           locale: 'en_Us',
           url,
           description: `We build world changing software while preparing people to thrive in technical careers.`,
-          site_name: 'The Masjid App',
+          site_name: 'Dev Launchers sample',
           images: [
             {
               url: './preview.jpg',
