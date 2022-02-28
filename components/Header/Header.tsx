@@ -17,7 +17,7 @@ export default function Header() {
   }, [currentIndex, setCurrentIndex])
 
   return (
-    <nav className="fixed h-auto w-screen bg-[#1c1c1c]  text-[#ffffff] ">
+    <nav className="fixed z-10 h-auto w-screen bg-[#1c1c1c]  text-[#ffffff] ">
       <div className="container mx-auto flex flex-row items-center justify-between py-2">
         {/* logo */}
         <Link href={'/'} passHref>
