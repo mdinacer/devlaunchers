@@ -28,5 +28,5 @@ module.exports = {
       CinzelDeco: ["'Cinzel Decorative'", 'sans-serif'],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }

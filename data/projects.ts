@@ -7,6 +7,8 @@ export interface Project {
     commitment: number
 }
 
+export const ProjectTypes = ['Ideas', 'Projects', 'Products']
+
 const Projects: Project[] = [
     {
         id: 1,

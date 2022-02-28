@@ -8,7 +8,7 @@ export default function ProjectCard({ project }: Props) {
   return (
     <div className="rounded-md bg-[#c4c4c4] py-5">
       <p className=" py-5 text-center font-Montserrat text-xs font-bold uppercase text-black">{`${project.type} Platform`}</p>
-      <div className="min-h-[12vh] -translate-x-3 -translate-y-3 rounded-md bg-[#59687a] px-5 py-3 pl-7 text-white drop-shadow-md">
+      <div className="-translate-x-3 -translate-y-3 rounded-md bg-[#59687a] px-5 py-3 pl-7 text-white drop-shadow-md lg:min-h-[12vh]">
         {/* <p className=" font-Montserrat text-xs uppercase">{`${project.type} Platform`}</p> */}
         <p className=" font-Oswald text-3xl">{project.title}</p>
         <p className=" max-w-md flex-auto py-2 font-Montserrat text-sm font-normal">
