@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react'
 import { NextSeo } from 'next-seo'
 import { AnimatePresence, motion } from 'framer-motion'
-import dynamic from 'next/dynamic'
-const Header = dynamic(() => import('./Header/Header'))
+
 type Props = {
   children: ReactNode
   title: string
@@ -18,7 +17,7 @@ const Layout = ({ children, title, description }: Props): JSX.Element => {
         openGraph={{ title, description }}
       />
       <main className={styles.mainContainer}>
-        <Header />
+        {/* <Header /> */}
         <AnimatePresence exitBeforeEnter>
           <motion.div
             initial="hidden"
