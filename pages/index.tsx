@@ -43,8 +43,8 @@ const Home: NextPage = () => {
                 <span className="text-base font-bold">Time Commitment: </span>
                 <span className="text-base">3-5 Hours/week</span>
               </p>
-              <div className="flex w-full flex-row justify-end py-5">
-                <button className="ml-auto rounded-[20px] bg-gray-500 py-1 px-2 text-white">
+              <div className="flex w-full flex-row justify-end pt-5">
+                <button className="ml-auto rounded-[20px] bg-gray-500 py-1 px-5 text-white">
                   See More
                 </button>
               </div>
