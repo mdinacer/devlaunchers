@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import { NextSeo } from 'next-seo'
 import { AnimatePresence, motion } from 'framer-motion'
+import Header from './Header/Header'
 
 type Props = {
   children: ReactNode
@@ -10,14 +11,14 @@ type Props = {
 
 const Layout = ({ children, title, description }: Props): JSX.Element => {
   return (
-    <div>
+    <div className="relative">
       <NextSeo
         title={title}
         description={description}
         openGraph={{ title, description }}
       />
       <main className={styles.mainContainer}>
-        {/* <Header /> */}
+        <Header />
         <AnimatePresence exitBeforeEnter>
           <motion.div
             initial="hidden"

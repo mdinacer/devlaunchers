@@ -1,55 +1,69 @@
-import { XIcon } from '@heroicons/react/solid'
+import { motion } from 'framer-motion'
 import type { NextPage } from 'next'
-import { useState } from 'react'
 import Layout from '../components/Layout'
 
 const Home: NextPage = () => {
-  const [checked, setChecked] = useState(false)
-  const [labelChecked, setLabelChecked] = useState(false)
   return (
     <Layout title="Home" description="Join Us">
-      <div className=" h-full min-h-screen w-screen bg-[#454D58] py-20 px-10  ">
-        <div className="flex flex-row gap-x-5 py-10">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
-            <div
-              key={index}
-              className=" flex flex-row items-center gap-x-5 rounded-2xl bg-gray-300 py-1 pl-5 pr-2"
+      <div className=" h-full min-h-screen w-screen bg-[#454D58] pt-20">
+        <div className="py-10">
+          <div className="mx-auto flex flex-col items-center justify-center gap-y-4 py-10  text-white">
+            <p className=" w-full max-w-lg border-b border-b-white pb-2 text-center text-7xl">
+              Join Us!
+            </p>
+            <p className=" text-4xl">Find a project to join!</p>
+          </div>
+
+          <motion.div className=" h-auto overflow-hidden bg-[#30363E] p-5 xl:p-10">
+            <motion.div
+              variants={ideasContainerVariants}
+              initial={'hidden'}
+              animate={'open'}
+              className="mx-auto grid grid-cols-1  gap-10 lg:grid-cols-3 lg:px-10  "
             >
-              <p>{`Filter ${index + 1}`}</p>
-              <XIcon className="h-6 w-6" />
-            </div>
-          ))}
-        </div>
-        <div className="grid grid-cols-3 gap-5">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
-            <div
-              key={index}
-              className=" h-auto rounded-[20px] bg-gray-300 p-10"
-            >
-              <p className="  pb-3 text-sm font-bold uppercase">
-                platform type
-              </p>
-              <p className=" pb-4 text-4xl">Project Name</p>
-              <p className="font-thing pb-5">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-                voluptates fugiat hic commodi id doloremque amet ipsum, quod eum
-                possimus!
-              </p>
-              <p className="font-thing">
-                <span className="text-base font-bold">Open positions: </span>
-                <span className="text-base">6 positions</span>
-              </p>
-              <p className="font-thing">
-                <span className="text-base font-bold">Time Commitment: </span>
-                <span className="text-base">3-5 Hours/week</span>
-              </p>
-              <div className="flex w-full flex-row justify-end pt-5">
-                <button className="ml-auto rounded-[20px] bg-gray-500 py-1 px-5 text-white">
-                  See More
-                </button>
-              </div>
-            </div>
-          ))}
+              {[1, 2, 3].map((item, index) => (
+                <motion.div
+                  variants={ideasItemVariants}
+                  key={index}
+                  className="mx-auto h-auto w-full overflow-hidden rounded-[40px] bg-[#C4C4C4] lg:w-[30vw]"
+                >
+                  <div className="w-full rounded-[40px] bg-[#59687B] p-3 text-white ">
+                    <p className=" pb-2 text-center text-4xl">Project Name</p>
+                    <p className=" text-center text-lg">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Eligendi aliquid tempore ipsum nesciunt necessitatibus
+                      sapiente.
+                    </p>
+                  </div>
+
+                  <div className="mx-auto  flex w-full flex-col  justify-evenly gap-y-5 px-5 py-5 lg:flex-row">
+                    <div className="flex flex-col items-center justify-start gap-y-3 font-Abel">
+                      <p className=" text-lg font-bold">Type</p>
+                      <p className=" text-lg">Product Platform</p>
+                    </div>
+                    <div className="flex flex-col items-center justify-start gap-y-3 border-y-2 border-x-0 border-[#454D58] border-opacity-50 py-5 lg:border-y-0 lg:border-x-2 lg:py-0 lg:px-5">
+                      <p className=" text-lg font-bold">Positions Available</p>
+                      <ul className="list-disc">
+                        <li className=" list-item">
+                          <p className=" text-lg">React Developer</p>
+                        </li>
+                        <li className=" list-item">
+                          <p className=" text-lg">Digital Artist</p>
+                        </li>
+                        <li className=" list-item">
+                          <p className=" text-lg">UX/UI</p>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="flex flex-col items-center justify-start gap-y-3">
+                      <p className=" text-lg font-bold">Time Commitment</p>
+                      <p className=" text-lg">3Hrs</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </Layout>
@@ -57,3 +71,25 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+const ideasContainerVariants = {
+  hidden: { opacity: 0 },
+  open: {
+    opacity: 1,
+    transition: {
+      delay: 0.5,
+      staggerChildren: 0.35,
+      delayChildren: 0.5,
+    },
+  },
+  exit: { opacity: 0 },
+}
+
+const ideasItemVariants = {
+  hidden: { opacity: 0, y: '100%' },
+  open: {
+    opacity: 1,
+    y: 0,
+  },
+  exit: { opacity: 0, y: '-100%' },
+}

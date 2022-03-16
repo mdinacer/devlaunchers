@@ -26,6 +26,7 @@ module.exports = {
       Spartan: ["'Spartan'", 'sans-serif'],
       Island: ["'Island Moments'", 'sans-serif'],
       CinzelDeco: ["'Cinzel Decorative'", 'sans-serif'],
+      Abel: ["'Abel'", 'sans-serif'],
     },
   },
   plugins: [require('@tailwindcss/forms')],
