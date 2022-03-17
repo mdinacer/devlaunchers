@@ -156,9 +156,9 @@ const loginText = 'Signin'
 
 const menuLinks = [
   { id: 1, title: 'create', path: '#' },
-  { id: 1, title: 'learn', path: '#' },
-  { id: 1, title: 'support us', path: '#' },
-  { id: 1, title: 'join', path: '#' },
+  { id: 2, title: 'learn', path: '#' },
+  { id: 3, title: 'support us', path: '#' },
+  { id: 4, title: 'join', path: '#' },
 ]
 
 const colors = ['#ff7f0f', '#ffab00', '#82c3d6', '#3a7ca4']
