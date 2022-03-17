@@ -52,7 +52,7 @@ export default function Header() {
         </ul>
 
         {/* SignIn button */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex">
           <Link href={'#'} passHref>
             <a className="rounded-lg py-1 px-3  text-orange-500 transition-all duration-200 hover:bg-orange-500 hover:text-[#ffffff]">
               <p className=" text-xl font-thin uppercase">{loginText}</p>
