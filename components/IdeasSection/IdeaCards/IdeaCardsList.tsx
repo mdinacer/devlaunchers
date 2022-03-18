@@ -7,13 +7,13 @@ export default function IdeaCardsList() {
       variants={ideasContainerVariants}
       initial={'hidden'}
       animate={'open'}
-      className=" h-auto overflow-hidden bg-[#30363E] p-5 xl:p-10"
+      className={styles.wrapper}
     >
       <motion.div
         variants={ideasContainerVariants}
         initial={'hidden'}
         animate={'open'}
-        className="mx-auto grid grid-cols-1  gap-10 lg:grid-cols-3 lg:px-10  "
+        className={styles.grid}
       >
         {[1, 2, 3].map((item, index) => (
           <IdeaCard key={index} />
@@ -23,8 +23,16 @@ export default function IdeaCardsList() {
   )
 }
 
+const styles = {
+  wrapper: `h-auto overflow-hidden bg-[#30363E] p-5 xl:p-10`,
+  grid: `mx-auto grid grid-cols-1  gap-10 lg:grid-cols-3 lg:px-10`,
+}
+
 const ideasContainerVariants = {
-  hidden: { opacity: 0, scaleY: 0 },
+  hidden: {
+    opacity: 0,
+    scaleY: 0,
+  },
   open: {
     opacity: 1,
     scaleY: 1,

@@ -42,17 +42,17 @@ export default function Dropdown({ title, onChange, selectedItems }: Props) {
   useOutsideClick(ref, handleCloseMenu)
 
   return (
-    <div ref={ref} className="relative w-full lg:w-auto">
+    <div ref={ref} className={styles.wrapper}>
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className=" inline-flex w-full items-center justify-between  gap-x-5 rounded-[40px] bg-white pl-5 pr-2 drop-shadow-md lg:w-auto"
+        className={styles.button}
       >
-        <p className="text-lg">{title}</p>
+        <p className={styles.buttonText}>{title}</p>
         {isOpen ? (
-          <ChevronUpIcon className="h-6 w-6" />
+          <ChevronUpIcon className={styles.buttonIcon} />
         ) : (
-          <ChevronDownIcon className="h-6 w-6" />
+          <ChevronDownIcon className={styles.buttonIcon} />
         )}
       </button>
 
@@ -64,11 +64,11 @@ export default function Dropdown({ title, onChange, selectedItems }: Props) {
             animate={'open'}
             exit="exit"
             style={{ transformOrigin: 'top' }}
-            className={`absolute left-0  z-10 w-full  min-w-[18rem] p-2`}
+            className={styles.listContainer}
           >
-            <ul className=" flex  w-full max-w-sm list-none flex-col gap-y-2 overflow-hidden rounded-[10px] bg-white px-5 py-3">
+            <ul className={styles.list}>
               {[1, 2, 3, 4, 5].map((item) => (
-                <li key={item} className=" list-item">
+                <li key={item} className={styles.listItem}>
                   <AppCheckbox
                     isChecked={checkExists(`Filter ${item}`)}
                     onChange={(value) => handleChecked(`Filter ${item}`, value)}
@@ -82,6 +82,16 @@ export default function Dropdown({ title, onChange, selectedItems }: Props) {
       </AnimatePresence>
     </div>
   )
+}
+
+const styles = {
+  wrapper: `relative w-full lg:w-auto`,
+  button: `inline-flex w-full items-center justify-between gap-x-5 rounded-[40px] bg-white pl-5 pr-2 drop-shadow-md lg:w-auto`,
+  buttonText: `text-lg`,
+  buttonIcon: `h-6 w-6`,
+  listContainer: `absolute left-0  z-10 w-full  min-w-[18rem] p-2`,
+  list: `flex w-full max-w-sm list-none flex-col gap-y-2 overflow-hidden rounded-[10px] bg-white px-5 py-3`,
+  listItem: `list-item`,
 }
 
 const listVariants = {

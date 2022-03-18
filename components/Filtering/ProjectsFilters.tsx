@@ -1,5 +1,3 @@
-import { XIcon } from '@heroicons/react/solid'
-import { platform } from 'os'
 import { useState } from 'react'
 import AppChip from '../common/Chip/AppChip'
 import Dropdown from '../common/DropDown/Dropdown'
@@ -48,10 +46,11 @@ export default function ProjectsFilters() {
         break
     }
   }
+
   return (
-    <div className="py-5 px-2 lg:px-10">
-      <p className="pl-3 pb-5 text-2xl text-white">Filters</p>
-      <div className="flex w-full flex-col items-center gap-x-4  gap-y-4 lg:flex-row">
+    <div className={styles.wrapper}>
+      <p className={styles.title}>Filters</p>
+      <div className={styles.dropdownContainer}>
         <Dropdown
           title="Platform"
           onChange={(value) => setFilters({ ...filters, platform: value })}
@@ -74,8 +73,8 @@ export default function ProjectsFilters() {
         />
       </div>
 
-      <div className="flex w-full flex-col items-center  gap-x-4 lg:flex-row">
-        <ul className=" mx-auto flex flex-row flex-wrap gap-5 py-5 lg:mx-0">
+      <div className={styles.chipsListContainer}>
+        <ul className={styles.chipsList}>
           {filters.platform.length > 0 &&
             filters.platform.map((item, index) => (
               <li key={index}>
@@ -123,4 +122,12 @@ export default function ProjectsFilters() {
       </div>
     </div>
   )
+}
+
+const styles = {
+  wrapper: `py-5 px-2 lg:px-10`,
+  title: `pl-3 pb-5 text-2xl text-white`,
+  dropdownContainer: `flex w-full flex-col items-center gap-x-4  gap-y-4 lg:flex-row`,
+  chipsListContainer: `flex w-full flex-col items-center  gap-x-4 lg:flex-row`,
+  chipsList: `mx-auto flex flex-row flex-wrap gap-5 py-5 lg:mx-0`,
 }
