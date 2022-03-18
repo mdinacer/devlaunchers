@@ -1,38 +1,38 @@
 import { motion } from 'framer-motion'
+import { Project } from '../../../data/projects'
 
-export default function IdeaCard() {
+interface Props {
+  project: Project
+}
+
+export default function IdeaCard({ project }: Props) {
   return (
     <motion.div variants={ideasItemVariants} className={styles.wrapper}>
       <div className={styles.header}>
-        <p className={styles.title}>Project Name</p>
-        <p className={styles.description}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-          aliquid tempore ipsum nesciunt necessitatibus sapiente.
-        </p>
+        <p className={styles.title}>{project.title}</p>
+        <p className={styles.description}>{project.description}</p>
       </div>
 
       <div className={styles.body}>
         <div className={styles.section}>
           <p className={styles.sectionTitleText}>Type</p>
-          <p className={styles.sectionBodyText}>Product Platform</p>
+          <p className={styles.sectionBodyText}>{project.type}</p>
         </div>
         <div className={`${styles.section} ${styles.positionSection}`}>
           <p className={styles.sectionTitleText}>Positions Available</p>
           <ul className={styles.positionsList}>
-            <li className={styles.positionsListItem}>
-              <p className={styles.sectionBodyText}>React Developer</p>
-            </li>
-            <li className={styles.positionsListItem}>
-              <p className={styles.sectionBodyText}>Digital Artist</p>
-            </li>
-            <li className={styles.positionsListItem}>
-              <p className={styles.sectionBodyText}>UX/UI</p>
-            </li>
+            {project.positions.map((position, index) => (
+              <li key={index} className={styles.positionsListItem}>
+                <p className={styles.sectionBodyText}>{position}</p>
+              </li>
+            ))}
           </ul>
         </div>
         <div className={styles.section}>
           <p className={styles.sectionTitleText}>Time Commitment</p>
-          <p className={styles.sectionBodyText}>3Hrs</p>
+          <p
+            className={styles.sectionBodyText}
+          >{`${project.commitment} Hours/Week`}</p>
         </div>
       </div>
     </motion.div>
@@ -52,7 +52,7 @@ const styles = {
   wrapper: `mx-auto h-auto w-full overflow-hidden rounded-[20px] bg-[#C4C4C4] lg:w-[30vw] lg:rounded-[40px]`,
   header: `w-full rounded-[20px] bg-[#59687B] p-3 text-white lg:rounded-[40px]`,
   title: `pb-2 text-center text-4xl`,
-  description: `text-center text-lg`,
+  description: `text-center text-lg min-h-[4rem]`,
   body: `mx-auto flex w-full flex-col justify-evenly gap-y-5 px-5 py-5 lg:flex-row`,
   section: `flex flex-col items-center justify-start gap-y-3`,
   sectionTitleText: `text-lg font-bold`,

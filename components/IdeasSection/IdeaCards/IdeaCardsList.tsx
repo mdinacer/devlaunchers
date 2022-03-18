@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Projects from '../../../data/projects'
 import IdeaCard from '../IdeaCardsItem/IdeaCard'
 
 export default function IdeaCardsList() {
@@ -15,8 +16,8 @@ export default function IdeaCardsList() {
         animate={'open'}
         className={styles.grid}
       >
-        {[1, 2, 3].map((item, index) => (
-          <IdeaCard key={index} />
+        {Projects.map((project) => (
+          <IdeaCard key={project.id} project={project} />
         ))}
       </motion.div>
     </motion.div>
