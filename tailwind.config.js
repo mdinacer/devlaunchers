@@ -29,5 +29,5 @@ module.exports = {
       Abel: ["'Abel'", 'sans-serif'],
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/custom-forms')],
 }
